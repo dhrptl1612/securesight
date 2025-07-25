@@ -3,9 +3,9 @@ import { prisma } from '@/lib/prisma'
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const id = parseInt(params.id)
+  const id = parseInt(context.params.id)
   
   if (isNaN(id)) {
     return NextResponse.json(
